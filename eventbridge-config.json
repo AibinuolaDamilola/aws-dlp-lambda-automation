@@ -1,1 +1,15 @@
-
+{
+  "EventPattern": {
+    "source": ["aws.macie"],
+    "detail-type": ["Macie Finding"],
+    "detail": {
+      "severity": ["High"]
+    }
+  },
+  "State": "ENABLED",
+  "Targets": [
+    {
+      "Arn": "arn:aws:lambda:eu-north-1:533267059964:function:Clientautomation"
+    }
+  ]
+}
