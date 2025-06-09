@@ -30,8 +30,9 @@ Organizations often rely on manual monitoring or delayed response mechanisms whe
 ---
 
 ## 🏗️ Architecture Overview  
+![Architecture Diagram](https://github.com/AibinuolaDamilola/aws-dlp-lambda-automation/blob/main/diagrams/arc.png)
 
-![Architecture Diagram](./diagrams/architecture.png)
+---
 
 **Workflow:**
 1. A file is uploaded to a monitored (vulnerable) S3 bucket.
