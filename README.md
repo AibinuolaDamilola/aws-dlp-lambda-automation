@@ -127,8 +127,23 @@ Organizations often rely on manual monitoring or delayed response mechanisms whe
 
 ---
 
+## 🛠 Project Walkthrough
+I’ve written a detailed walkthrough of this project on Medium — covering how to connect Amazon S3, Macie, EventBridge, Lambda, and SNS to automate sensitive data detection and alerting.
+📖 Read it here: <a href="https://medium.com/@evolvewithdami/how-i-built-an-automated-sensitive-data-alerting-system-on-aws-s3-macie-lambda-sns-1f5027594eab">How I Built an Automated Sensitive Data Alerting System with AWS</a>
+
+---
+
+## Business Impact & Results
+This setup gave the startup:
+- Prevents real-time exposure of sensitive data
+- Keeps audit logs for compliance
+- And enforces encryption and deletion instantly
+- This reduced manual audits, cut response time to under 2 minutes, and added a layer of HIPAA readiness.
+
+---
+
 ## 🤝 Contributing  
-PRs and ideas are welcome. Fork the repo, submit your changes, and help expand the project!
+PRs and ideas are welcome. Fork the repo, submit your changes, and help expand the project
 
 ---
 
