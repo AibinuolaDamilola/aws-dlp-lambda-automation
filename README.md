@@ -3,7 +3,7 @@
 ## 🔍 Introduction  
 Sensitive data leaks are one of the most dangerous and expensive risks for any business. This project is a **serverless automation system** that detects sensitive data exposure in real-time and automatically remediates it using AWS Lambda.
 
-Built as part of the **AWS Lambda Hackathon**, this project uses Amazon Macie to detect PII (Personally Identifiable Information) in an S3 bucket, then triggers a Lambda function via EventBridge to isolate and secure the data, followed by an alert to security engineers via SNS.
+Built as part of the **AWS Lambda Hackathon**, this project uses Amazon Macie to detect PII (Personally Identifiable Information) in an S3 bucket, then triggers a Lambda function via EventBridge to isolate and secure the data, followed by an alert to security engineers via SNS and CloudWatch to log event and for compliance purposese.
 
 ---
 
@@ -25,7 +25,7 @@ Organizations often rely on manual monitoring or delayed response mechanisms whe
 | **Amazon EventBridge** | Triggers Lambda based on Macie alerts.                    |
 | **Amazon SNS**       | Sends notification to incident response team.                |
 | **Amazon S3**        | Stores both vulnerable and secure files.                     |
-| (Optional) **CloudWatch Logs** | For debugging and monitoring Lambda executions. |
+| **CloudWatch Logs** | For debugging and monitoring Lambda executions and compliance audit. |
 
 ---
 
@@ -41,12 +41,13 @@ Organizations often rely on manual monitoring or delayed response mechanisms whe
    - Moves the file to a secure S3 bucket.
    - Deletes the original file from the vulnerable bucket.
    - Sends an SNS alert to the security team.
+   - Log the event
 
 ---
 
 ## ⚙️ How It Works
 
-1. **Macie Detection**: Scans new files in a bucket and generates alerts when it detects sensitive information like names, addresses, emails, etc.  
+1. **Macie Detection**: Scans new files in a bucket and generates alerts when it detects sensitive information like names, addresses, emails, medical records, credit cards etc.  
 2. **EventBridge Rule**: Listens for Macie findings and forwards them to a Lambda trigger.  
 3. **Lambda Function** (`index.py`):
    - Parses the Macie finding.
@@ -55,6 +56,7 @@ Organizations often rely on manual monitoring or delayed response mechanisms whe
    - Deletes the original object.
    - Publishes a security alert to an SNS topic.  
 4. **SNS Notification**: Sends a clear, formatted alert to the incident response team.
+5. **CloudWatch Log**: Log the events for complaince and monitoring 
 
 ---
 
@@ -109,7 +111,7 @@ Organizations often rely on manual monitoring or delayed response mechanisms whe
 ---
 
 ## 🎥 Demo Video  
- [Watch on YouTube](https://your-demo-video-link.com)
+ [Watch on YouTube](https://youtu.be/hZDTvldsadY?si=QaNLJ5WsC3YQURDw)
 
 - Demonstrates real-time detection of PII  
 - Shows automated remediation in S3  
