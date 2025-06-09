@@ -1,1 +1,105 @@
+{
+  "version": "1.0",
+  "timestamp": "2025-06-02T11:20:52.290Z",
+  "requestContext": {
+    "requestId": "77e5e7e2-59e3-4ff6-bd47-5d4cf108d8d5",
+    "functionArn": "arn:aws:lambda:eu-north-1:533267059964:function:Clientautomation:$LATEST",
+    "condition": "Success",
+    "approximateInvokeCount": 1
+  },
+  "requestPayload": {
+    "version": "0"
+  },
+  "detail": {
+    "schemaVersion": "1.0",
+    "id": "4bb4412ef6bde836ca10c98e8323a30c",
+    "accountId": "533267059964",
+    "region": "eu-north-1",
+    "type": "SensitiveData:S3Object/Credentials",
+    "title": "The S3 object contains credentials data",
+    "description": "The S3 object contains credentials such as AWS secret access keys or private keys.",
+    "severity": {
+      "score": 3,
+      "description": "High"
+    },
+    "createdAt": "2025-06-02T11:20:30.653Z",
+    "updatedAt": "2025-06-02T11:20:30.653Z",
+    "resourcesAffected": [
+      {
+        "s3Bucket": {
+          "arn": "arn:aws:s3:::pii-remediation-store",
+          "name": "pii-remediation-store",
+          "createdAt": "2021-11-15T07:26:00.000Z",
+          "owner": {
+            "displayName": "dami",
+            "id": "e5c109ef846caf030d843fa610e732b7d505b9a3c08c16e88f133d58"
+          },
+          "defaultServerSideEncryption": {
+            "encryptionType": "AES256",
+            "kmsMasterKeyId": null
+          },
+          "publicAccess": {
+            "permissionConfiguration": {
+              "bucketLevelPermissions": {
+                "accessControlList": {
+                  "allowsPublicReadAccess": false,
+                  "allowsPublicWriteAccess": false
+                },
+                "blockPublicAccess": {
+                  "ignorePublicAcls": true,
+                  "restrictPublicBuckets": true,
+                  "blockPublicAcls": true,
+                  "blockPublicPolicy": true
+                }
+              }
+            },
+            "effectivePermission": "NOT_PUBLIC",
+            "allowsUnencryptedObjectUploads": "TRUE"
+          },
+          "s3Object": {
+            "bucketArn": "arn:aws:s3:::pii-remediation-store",
+            "key": "SecurityEngineer_Damilola_accessKeys.csv",
+            "path": "pii-remediation-store/SecurityEngineer_Damilola_accessKeys.csv",
+            "extension": "csv",
+            "lastModified": "2025-05-31T02:01:54.000Z",
+            "size": 99,
+            "storageClass": "STANDARD"
+          }
+        }
+      }
+    ],
+    "category": "CLASSIFICATION",
+    "classificationDetails": {
+      "result": {
+        "status": {
+          "code": "COMPLETE"
+        }
+      },
+      "mimeType": "text/csv",
+      "sensitiveData": [
+        {
+          "category": "CREDENTIALS",
+          "totalCount": 1,
+          "detections": [
+            {
+              "type": "AWS_CREDENTIALS",
+              "totalCount": 1,
+              "occurrences": [
+                {
+                  "row": 2,
+                  "column": 2,
+                  "columnName": "Secret access key"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "responsePayload": {
+    "statusCode": 500,
+    "body": "AWS Service Error: An error occurred (404) when calling the HeadObject operation: Not Found"
+  }
+}
 
